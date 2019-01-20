@@ -12,17 +12,15 @@ pool:
 variables:
 - group: my-vars
 
-- job: Build_Pipeline
-  timeoutInMinutes: 0
-  steps:
-    - task: UsePythonVersion@0
-      displayName: 'Use Python 3.6'
-      inputs:
-        versionSpec: 3.6
+steps:
+  - task: UsePythonVersion@0
+    displayName: 'Use Python 3.6'
+    inputs:
+      versionSpec: 3.6
 
-    - bash: ./'env-create/setup.sh' 
-      displayName: 'Pip Installs'
-      enabled: false
+  - bash: ./'env-create/setup.sh' 
+    displayName: 'Pip Installs'
+    enabled: false
 
-    - script: 'python ./env-create/workspace.py --ws $(workspace) --id $(subscriptionId) --group $(resourceGroup)' 
-      displayName: 'Get Workspace'
+  - script: 'python ./env-create/workspace.py --ws $(workspace) --id $(subscriptionId) --group $(resourceGroup)' 
+    displayName: 'Get Workspace'
