@@ -10,13 +10,19 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-- group: My-vars
+- group: my-vars
 
-steps:
-- script: echo Hello, $(test)!
-  displayName: 'Run a one-line script'
+- job: Build_Pipeline
+  timeoutInMinutes: 0
+  steps:
+    - task: UsePythonVersion@0
+      displayName: 'Use Python 3.6'
+      inputs:
+        versionSpec: 3.6
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    - bash: ./'env-create/setup.sh' 
+      displayName: 'Pip Installs'
+      enabled: false
+
+    - script: 'python ./env-create/workspace.py --ws $(workspace) --id $(subscriptionId) --group $(resourceGroup)' 
+      displayName: 'Get Workspace'
