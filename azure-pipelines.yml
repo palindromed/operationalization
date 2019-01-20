@@ -18,9 +18,8 @@ steps:
     inputs:
       versionSpec: 3.6
 
-  - bash: ./'env-create/setup.sh' 
+  - script: ./'env-create/setup.sh' 
     displayName: 'Pip Installs'
-    enabled: false
 
   - script: 'python ./aml/workspace.py --ws $(workspace) --id $(subscriptionId) --group $(resourceGroup)' 
     displayName: 'Get Workspace'
