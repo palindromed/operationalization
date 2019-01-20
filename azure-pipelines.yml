@@ -22,5 +22,5 @@ steps:
     displayName: 'Pip Installs'
     enabled: false
 
-  - script: 'python ./env-create/workspace.py --ws $(workspace) --id $(subscriptionId) --group $(resourceGroup)' 
+  - script: 'python ./aml/workspace.py --ws $(workspace) --id $(subscriptionId) --group $(resourceGroup)' 
     displayName: 'Get Workspace'
