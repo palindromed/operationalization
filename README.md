@@ -1,5 +1,7 @@
 # operationalization
 
+[![Build Status](https://dev.azure.com/hakrager/MLDevOps/_apis/build/status/palindromed.operationalization?branchName=master)](https://dev.azure.com/hakrager/MLDevOps/_build/latest?definitionId=1&branchName=master)
+
 Work on Machine Learning Operationalization.
 
 This is a work in progress and is not a supported solution or library.
