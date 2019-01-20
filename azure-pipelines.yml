@@ -18,7 +18,7 @@ steps:
     inputs:
       versionSpec: 3.6
 
-  - script: ./'env-create/setup.sh' 
+  - script: 'python -m pip install --upgrade -r ./env-create/requirements.txt' 
     displayName: 'Pip Installs'
 
   - script: 'python ./aml/workspace.py --ws $(workspace) --id $(subscriptionId) --group $(resourceGroup)' 

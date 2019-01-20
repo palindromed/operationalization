@@ -1,0 +1,4 @@
+pytest
+requests
+azureml-sdk[notebooks,automl]
+flake8
