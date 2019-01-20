@@ -9,8 +9,11 @@ trigger:
 pool:
   vmImage: 'Ubuntu-16.04'
 
+variables:
+- group: My-vars
+
 steps:
-- script: echo Hello, world!
+- script: echo Hello, $(test)!
   displayName: 'Run a one-line script'
 
 - script: |
